@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">xamarin-lim-kopi</string>
+  <string name="ApplicationName">xamarin-lim-kopi</string>
+  <string name="Kopi">Kopi</string>
+  <string name="Teh">Teh</string>
+  <string name="Default"></string>
+  <string name="O">O</string>
+  <string name="See">See</string>
+  <string name="Alia">Alia</string>
+  <string name="Lemon">Lemon</string>
+  <string name="Masala">Masala</string>
+  <string name="Kosong">Kosong</string>
+  <string name="GarDai">Gar Dai</string>
+  <string name="SiuDai">Siu Dai</string>
+  <string name="Gau">Gau</string>
+  <string name="Po">Po</string>
+  <string name="MaiPeng">Mai Peng</string>
+  <string name="Peng">Peng</string>
+  <string name="Servings">How many servings?</string>
+  <string name="Order">Order</string>
 </resources>
