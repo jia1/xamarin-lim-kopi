@@ -8,7 +8,7 @@
     <ToggleButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toggleButton1"
+        android:id="@+id/toggleKopiTeh"
         android:textOff="@string/Kopi"
         android:textOn="@string/Teh" />
     <RadioGroup
@@ -16,14 +16,14 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup1"
+        android:id="@+id/radioGroupMilk"
         android:orientation="horizontal">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/Default"
-            android:id="@+id/radioButton1" />
+            android:id="@+id/radioDefaultMilk" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup2"
+        android:id="@+id/radioGroupRandom"
         android:orientation="horizontal">
         <RadioButton
             android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup3"
+        android:id="@+id/radioGroupSugar"
         android:orientation="horizontal">
         <RadioButton
             android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup4"
+        android:id="@+id/radioGroupDensity"
         android:orientation="horizontal">
         <RadioButton
             android:layout_width="wrap_content"
@@ -116,18 +116,19 @@
     <ToggleButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toggleButton2"
+        android:id="@+id/togglePeng"
         android:textOff="@string/MaiPeng"
         android:textOn="@string/Peng" />
     <EditText
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText1"
-        android:hint="@string/Servings" />
+        android:id="@+id/editServings"
+        android:hint="@string/Servings"
+        android:numeric="integer" />
     <Button
         android:text="@string/Order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:id="@+id/buttonOrder" />
 </LinearLayout>

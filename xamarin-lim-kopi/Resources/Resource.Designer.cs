@@ -61,13 +61,10 @@ namespace xamarin_lim_kopi
 		{
 			
 			// aapt resource value: 0x7f050015
-			public const int button1 = 2131034133;
+			public const int buttonOrder = 2131034133;
 			
 			// aapt resource value: 0x7f050014
-			public const int editText1 = 2131034132;
-			
-			// aapt resource value: 0x7f050002
-			public const int radioButton1 = 2131034114;
+			public const int editServings = 2131034132;
 			
 			// aapt resource value: 0x7f05000d
 			public const int radioButton10 = 2131034125;
@@ -108,23 +105,26 @@ namespace xamarin_lim_kopi
 			// aapt resource value: 0x7f05000c
 			public const int radioButton9 = 2131034124;
 			
-			// aapt resource value: 0x7f050001
-			public const int radioGroup1 = 2131034113;
-			
-			// aapt resource value: 0x7f050005
-			public const int radioGroup2 = 2131034117;
-			
-			// aapt resource value: 0x7f05000a
-			public const int radioGroup3 = 2131034122;
+			// aapt resource value: 0x7f050002
+			public const int radioDefaultMilk = 2131034114;
 			
 			// aapt resource value: 0x7f05000f
-			public const int radioGroup4 = 2131034127;
+			public const int radioGroupDensity = 2131034127;
+			
+			// aapt resource value: 0x7f050001
+			public const int radioGroupMilk = 2131034113;
+			
+			// aapt resource value: 0x7f050005
+			public const int radioGroupRandom = 2131034117;
+			
+			// aapt resource value: 0x7f05000a
+			public const int radioGroupSugar = 2131034122;
 			
 			// aapt resource value: 0x7f050000
-			public const int toggleButton1 = 2131034112;
+			public const int toggleKopiTeh = 2131034112;
 			
 			// aapt resource value: 0x7f050013
-			public const int toggleButton2 = 2131034131;
+			public const int togglePeng = 2131034131;
 			
 			static Id()
 			{
