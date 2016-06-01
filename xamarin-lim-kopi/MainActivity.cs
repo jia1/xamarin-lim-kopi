@@ -26,15 +26,15 @@ namespace xamarin_lim_kopi
             RadioGroup sugarRadioGroup = FindViewById<RadioGroup>(Resource.Id.radioGroupSugar);
             RadioGroup densityRadioGroup = FindViewById<RadioGroup>(Resource.Id.radioGroupDensity);
             ToggleButton pengBo = FindViewById<ToggleButton>(Resource.Id.togglePeng);
-            EditText servingsEditText = FindViewById<EditText>(Resource.Id.editServings);
+            EditText servingsEdit = FindViewById<EditText>(Resource.Id.editServings);
             Button orderButton = FindViewById<Button>(Resource.Id.buttonOrder);
 
             int milkId = milkRadioGroup.CheckedRadioButtonId;
             int randomId = randomRadioGroup.CheckedRadioButtonId;
             int sugarId = sugarRadioGroup.CheckedRadioButtonId;
             int densityId = densityRadioGroup.CheckedRadioButtonId;
-            int servings = 0;
 
+            string servingsText = servingsEdit.Text;
             string simiDrink = " " + GetString(Resource.String.Kopi);
             string simiMilk = " " + FindViewById<RadioButton>(milkId).Text;
             string simiRandom = " " + FindViewById<RadioButton>(randomId).Text;
@@ -44,19 +44,16 @@ namespace xamarin_lim_kopi
 
             string[] orderDrink = new string[] {
                 " ",
-                servings.ToString(),
+                servingsText,
                 simiDrink,
                 simiMilk,
                 simiRandom,
                 simiSugar,
+                thickOrThin,
                 pengOrNot
             };
 
             orderButton.Text = Core.OrderUpdater.generateOrder(-1, string.Empty, ref orderDrink);
-
-            Int32.TryParse(servingsEditText.Text, out servings);
-
-            // servingsEditText
 
             kopiOrTeh.Click += (object sender, EventArgs e) =>
             {
