@@ -13,6 +13,16 @@ namespace xamarin_lim_kopi
     public class MainActivity : Activity
     {
 
+        string servingsText = string.Empty;
+        string simiDrink = string.Empty;
+        string simiMilk = string.Empty;
+        string simiRandom = string.Empty;
+        string simiSugar = string.Empty;
+        string thickOrThin = string.Empty;
+        string pengOrNot = string.Empty;
+
+        string[] orderDrink;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -21,29 +31,14 @@ namespace xamarin_lim_kopi
             SetContentView(Resource.Layout.Main);
 
             ToggleButton kopiOrTeh = FindViewById<ToggleButton>(Resource.Id.toggleKopiTeh);
-            RadioGroup milkRadioGroup = FindViewById<RadioGroup>(Resource.Id.radioGroupMilk);
-            RadioGroup randomRadioGroup = FindViewById<RadioGroup>(Resource.Id.radioGroupRandom);
-            RadioGroup sugarRadioGroup = FindViewById<RadioGroup>(Resource.Id.radioGroupSugar);
-            RadioGroup densityRadioGroup = FindViewById<RadioGroup>(Resource.Id.radioGroupDensity);
             ToggleButton pengBo = FindViewById<ToggleButton>(Resource.Id.togglePeng);
             EditText servingsEdit = FindViewById<EditText>(Resource.Id.editServings);
             Button orderButton = FindViewById<Button>(Resource.Id.buttonOrder);
 
-            int milkId = milkRadioGroup.CheckedRadioButtonId;
-            int randomId = randomRadioGroup.CheckedRadioButtonId;
-            int sugarId = sugarRadioGroup.CheckedRadioButtonId;
-            int densityId = densityRadioGroup.CheckedRadioButtonId;
+            servingsText = servingsEdit.Text;
 
-            string servingsText = servingsEdit.Text;
-            string simiDrink = " " + GetString(Resource.String.Kopi);
-            string simiMilk = " " + FindViewById<RadioButton>(milkId).Text;
-            string simiRandom = " " + FindViewById<RadioButton>(randomId).Text;
-            string simiSugar = " " + FindViewById<RadioButton>(sugarId).Text;
-            string thickOrThin = " " + FindViewById<RadioButton>(densityId).Text; ;
-            string pengOrNot = " " + GetString(Resource.String.MaiPeng);
-
-            string[] orderDrink = new string[] {
-                " ",
+            orderDrink = new string[] {
+                GetString(Resource.String.Order),
                 servingsText,
                 simiDrink,
                 simiMilk,
@@ -53,49 +48,54 @@ namespace xamarin_lim_kopi
                 pengOrNot
             };
 
-            orderButton.Text = Core.OrderUpdater.generateOrder(-1, string.Empty, ref orderDrink);
+            orderButton.Text = Core.OrderUpdater.generateOrder(0, servingsText, ref orderDrink);
 
             kopiOrTeh.Click += (object sender, EventArgs e) =>
             {
-                simiDrink = " " + ((kopiOrTeh.Checked) ? 
+                simiDrink = (kopiOrTeh.Checked) ? 
                     GetString(Resource.String.Teh) 
-                    : GetString(Resource.String.Kopi));
-                orderButton.Text = Core.OrderUpdater.generateOrder(2, simiDrink, ref orderDrink);
-            };
-
-            milkRadioGroup.CheckedChange += delegate
-            {
-                simiMilk = " " + FindViewById<RadioButton>(milkId).Text;
-                orderButton.Text = Core.OrderUpdater.generateOrder(3, simiMilk, ref orderDrink);
-            };
-
-            randomRadioGroup.CheckedChange += delegate
-            {
-                simiRandom = " " + FindViewById<RadioButton>(randomId).Text;
-                orderButton.Text = Core.OrderUpdater.generateOrder(4, simiRandom, ref orderDrink);
-            };
-
-            sugarRadioGroup.CheckedChange += delegate
-            {
-                simiSugar = " " + FindViewById<RadioButton>(sugarId).Text;
-                orderButton.Text = Core.OrderUpdater.generateOrder(5, simiSugar, ref orderDrink);
-            };
-
-            densityRadioGroup.CheckedChange += delegate
-            {
-                thickOrThin = " " + FindViewById<RadioButton>(densityId).Text;
-                orderButton.Text = Core.OrderUpdater.generateOrder(6, thickOrThin, ref orderDrink);
+                    : GetString(Resource.String.Kopi);
+                orderButton.Text = Core.OrderUpdater.generateOrder(1, simiDrink, ref orderDrink);
             };
 
             pengBo.Click += (object sender, EventArgs e) =>
             {
                 pengOrNot = (pengBo.Checked) ?
                     GetString(Resource.String.Peng)
-                    : " (" + GetString(Resource.String.MaiPeng) + ")";
-                orderButton.Text = Core.OrderUpdater.generateOrder(7, pengOrNot, ref orderDrink);
+                    : "(" + GetString(Resource.String.MaiPeng) + ")";
+                orderButton.Text = Core.OrderUpdater.generateOrder(6, pengOrNot, ref orderDrink);
             };
 
+            RadioButton noMilkBtn = FindViewById<RadioButton>(Resource.Id.radioMilkDefault);
+            RadioButton oBtn = FindViewById<RadioButton>(Resource.Id.radioMilkO);
+            RadioButton seeBtn = FindViewById<RadioButton>(Resource.Id.radioMilkSee);
+
+            RadioButton noRandomBtn = FindViewById<RadioButton>(Resource.Id.radioRandomDefault);
+            RadioButton aliaBtn = FindViewById<RadioButton>(Resource.Id.radioRandomAlia);
+            RadioButton lemonBtn = FindViewById<RadioButton>(Resource.Id.radioRandomLemon);
+            RadioButton masalaBtn = FindViewById<RadioButton>(Resource.Id.radioRandomMasala);
+
+            RadioButton defaultSugarBtn = FindViewById<RadioButton>(Resource.Id.radioSugarDefault);
+            RadioButton kosongBtn = FindViewById<RadioButton>(Resource.Id.radioSugarKosong);
+            RadioButton moreBtn = FindViewById<RadioButton>(Resource.Id.radioSugarMore);
+            RadioButton lessBtn = FindViewById<RadioButton>(Resource.Id.radioSugarLess);
+
+            RadioButton defaultDensityBtn = FindViewById<RadioButton>(Resource.Id.radioDensityDefault);
+            RadioButton gauBtn = FindViewById<RadioButton>(Resource.Id.radioDensityThick);
+            RadioButton poBtn = FindViewById<RadioButton>(Resource.Id.radioDensityThin);
+
+            noMilkBtn.CheckedChange += MilkBtn_CheckedChange;
+            oBtn.CheckedChange += MilkBtn_CheckedChange;
+            seeBtn.CheckedChange += MilkBtn_CheckedChange;
+
             // orderButton.Click += 
+        }
+
+        private void MilkBtn_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
+        {
+            RadioButton checkedRadio = (RadioButton) sender;
+            simiMilk = checkedRadio.Text;
+            Core.OrderUpdater.generateOrder(2, simiMilk, ref orderDrink);
         }
     }
 }

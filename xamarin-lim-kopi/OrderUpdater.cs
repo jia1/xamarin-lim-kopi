@@ -12,7 +12,7 @@ namespace Core
             {
                 if (i == index)
                     array[i] = newOrderPart;
-                builder.Append(array[i]);
+                builder.Append(" " + array[i]);
             }
             return builder.ToString();
         }
