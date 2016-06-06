@@ -38,7 +38,7 @@ namespace xamarin_lim_kopi
             servingsText = servingsEdit.Text;
 
             orderDrink = new string[] {
-                GetString(Resource.String.Order),
+                string.Empty,
                 servingsText,
                 simiDrink,
                 simiMilk,
@@ -48,7 +48,8 @@ namespace xamarin_lim_kopi
                 pengOrNot
             };
 
-            orderButton.Text = Core.OrderUpdater.generateOrder(0, servingsText, ref orderDrink);
+            orderButton.Text = Core.OrderUpdater.generateOrder(0, GetString(Resource.String.Order), 
+                ref orderDrink);
 
             kopiOrTeh.Click += (object sender, EventArgs e) =>
             {
@@ -84,18 +85,19 @@ namespace xamarin_lim_kopi
             RadioButton gauBtn = FindViewById<RadioButton>(Resource.Id.radioDensityThick);
             RadioButton poBtn = FindViewById<RadioButton>(Resource.Id.radioDensityThin);
 
-            noMilkBtn.CheckedChange += MilkBtn_CheckedChange;
-            oBtn.CheckedChange += MilkBtn_CheckedChange;
-            seeBtn.CheckedChange += MilkBtn_CheckedChange;
+            noMilkBtn.Click += MilkBtnClick;
+            oBtn.Click += MilkBtnClick;
+            seeBtn.Click += MilkBtnClick;
 
             // orderButton.Click += 
         }
 
-        private void MilkBtn_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
+        private void MilkBtnClick(object sender, EventArgs e)
         {
             RadioButton checkedRadio = (RadioButton) sender;
             simiMilk = checkedRadio.Text;
-            Core.OrderUpdater.generateOrder(2, simiMilk, ref orderDrink);
+            FindViewById<Button>(Resource.Id.buttonOrder).Text = 
+                Core.OrderUpdater.generateOrder(2, simiMilk, ref orderDrink);
         }
     }
 }
