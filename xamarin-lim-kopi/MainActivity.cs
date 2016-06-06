@@ -12,15 +12,13 @@ namespace xamarin_lim_kopi
     [Activity(Label = "xamarin_lim_kopi", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-
-        string servingsText = string.Empty;
+        string simiServings = string.Empty;
         string simiDrink = string.Empty;
         string simiMilk = string.Empty;
         string simiRandom = string.Empty;
         string simiSugar = string.Empty;
-        string thickOrThin = string.Empty;
-        string pengOrNot = string.Empty;
-
+        string simiGauPo = string.Empty;
+        string simiPeng = string.Empty;
         string[] orderDrink;
 
         protected override void OnCreate(Bundle bundle)
@@ -30,74 +28,120 @@ namespace xamarin_lim_kopi
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            ToggleButton kopiOrTeh = FindViewById<ToggleButton>(Resource.Id.toggleKopiTeh);
-            ToggleButton pengBo = FindViewById<ToggleButton>(Resource.Id.togglePeng);
             EditText servingsEdit = FindViewById<EditText>(Resource.Id.editServings);
+
+            ToggleButton kopiOrTeh = FindViewById<ToggleButton>(Resource.Id.toggleKopiTeh);
+
+            Button milkBtn = FindViewById<Button>(Resource.Id.btnMilkDefault);
+            Button oBtn = FindViewById<Button>(Resource.Id.btnMilkO);
+            Button seeBtn = FindViewById<Button>(Resource.Id.btnMilkSee);
+
+            Button noRandomBtn = FindViewById<Button>(Resource.Id.btnRandomDefault);
+            Button aliaBtn = FindViewById<Button>(Resource.Id.btnAlia);
+            Button lemonBtn = FindViewById<Button>(Resource.Id.btnLemon);
+            Button masalaBtn = FindViewById<Button>(Resource.Id.btnMasala);
+
+            Button sugarBtn = FindViewById<Button>(Resource.Id.btnSugarDefault);
+            Button kosongBtn = FindViewById<Button>(Resource.Id.btnSugarZero);
+            Button garDaiBtn = FindViewById<Button>(Resource.Id.btnSugarMore);
+            Button siuDaiBtn = FindViewById<Button>(Resource.Id.btnSugarLess);
+
+            Button gauPoBtn = FindViewById<Button>(Resource.Id.btnGauPoDefault);
+            Button gauBtn = FindViewById<Button>(Resource.Id.btnGau);
+            Button poBtn = FindViewById<Button>(Resource.Id.btnPo);
+
+            ToggleButton pengBo = FindViewById<ToggleButton>(Resource.Id.togglePeng);
+
             Button orderButton = FindViewById<Button>(Resource.Id.buttonOrder);
 
-            servingsText = servingsEdit.Text;
-
+            simiServings = servingsEdit.Text;
             orderDrink = new string[] {
                 string.Empty,
-                servingsText,
+                simiServings,
                 simiDrink,
                 simiMilk,
                 simiRandom,
                 simiSugar,
-                thickOrThin,
-                pengOrNot
+                simiGauPo,
+                simiPeng
             };
 
-            orderButton.Text = Core.OrderUpdater.generateOrder(0, GetString(Resource.String.Order), 
+            orderButton.Text = Core.OrderUpdater.generateOrder(0, GetString(Resource.String.Order),
                 ref orderDrink);
+
+            servingsEdit.EditorAction += delegate
+            {
+                simiServings = servingsEdit.Text;
+                orderButton.Text = Core.OrderUpdater.generateOrder(1, simiServings, ref orderDrink);
+            };
 
             kopiOrTeh.Click += (object sender, EventArgs e) =>
             {
-                simiDrink = (kopiOrTeh.Checked) ? 
-                    GetString(Resource.String.Teh) 
+                simiDrink = (kopiOrTeh.Checked) ?
+                    GetString(Resource.String.Teh)
                     : GetString(Resource.String.Kopi);
-                orderButton.Text = Core.OrderUpdater.generateOrder(1, simiDrink, ref orderDrink);
+                orderButton.Text = Core.OrderUpdater.generateOrder(2, simiDrink, ref orderDrink);
             };
+
+            milkBtn.Touch += MilkBtnTouch;
+            oBtn.Touch += MilkBtnTouch;
+            seeBtn.Touch += MilkBtnTouch;
+
+            noRandomBtn.Touch += RandomBtnTouch;
+            aliaBtn.Touch += RandomBtnTouch;
+            lemonBtn.Touch += RandomBtnTouch;
+            masalaBtn.Touch += RandomBtnTouch;
+
+            sugarBtn.Touch += SugarBtnTouch;
+            kosongBtn.Touch += SugarBtnTouch;
+            garDaiBtn.Touch += SugarBtnTouch;
+            siuDaiBtn.Touch += SugarBtnTouch;
+
+            gauPoBtn.Touch += GauPoBtnTouch;
+            gauBtn.Touch += GauPoBtnTouch;
+            poBtn.Touch += GauPoBtnTouch;
 
             pengBo.Click += (object sender, EventArgs e) =>
             {
-                pengOrNot = (pengBo.Checked) ?
+                simiPeng = (pengBo.Checked) ?
                     GetString(Resource.String.Peng)
                     : "(" + GetString(Resource.String.MaiPeng) + ")";
-                orderButton.Text = Core.OrderUpdater.generateOrder(6, pengOrNot, ref orderDrink);
+                orderButton.Text = Core.OrderUpdater.generateOrder(7, simiPeng, ref orderDrink);
             };
-
-            RadioButton noMilkBtn = FindViewById<RadioButton>(Resource.Id.radioMilkDefault);
-            RadioButton oBtn = FindViewById<RadioButton>(Resource.Id.radioMilkO);
-            RadioButton seeBtn = FindViewById<RadioButton>(Resource.Id.radioMilkSee);
-
-            RadioButton noRandomBtn = FindViewById<RadioButton>(Resource.Id.radioRandomDefault);
-            RadioButton aliaBtn = FindViewById<RadioButton>(Resource.Id.radioRandomAlia);
-            RadioButton lemonBtn = FindViewById<RadioButton>(Resource.Id.radioRandomLemon);
-            RadioButton masalaBtn = FindViewById<RadioButton>(Resource.Id.radioRandomMasala);
-
-            RadioButton defaultSugarBtn = FindViewById<RadioButton>(Resource.Id.radioSugarDefault);
-            RadioButton kosongBtn = FindViewById<RadioButton>(Resource.Id.radioSugarKosong);
-            RadioButton moreBtn = FindViewById<RadioButton>(Resource.Id.radioSugarMore);
-            RadioButton lessBtn = FindViewById<RadioButton>(Resource.Id.radioSugarLess);
-
-            RadioButton defaultDensityBtn = FindViewById<RadioButton>(Resource.Id.radioDensityDefault);
-            RadioButton gauBtn = FindViewById<RadioButton>(Resource.Id.radioDensityThick);
-            RadioButton poBtn = FindViewById<RadioButton>(Resource.Id.radioDensityThin);
-
-            noMilkBtn.Click += MilkBtnClick;
-            oBtn.Click += MilkBtnClick;
-            seeBtn.Click += MilkBtnClick;
 
             // orderButton.Click += 
         }
 
-        private void MilkBtnClick(object sender, EventArgs e)
+        private void MilkBtnTouch(object sender, EventArgs e)
         {
-            RadioButton checkedRadio = (RadioButton) sender;
-            simiMilk = checkedRadio.Text;
+            Button checkedBtn = (Button) sender;
+            simiMilk = checkedBtn.Text;
             FindViewById<Button>(Resource.Id.buttonOrder).Text = 
-                Core.OrderUpdater.generateOrder(2, simiMilk, ref orderDrink);
+                Core.OrderUpdater.generateOrder(3, simiMilk, ref orderDrink);
+        }
+
+        private void RandomBtnTouch(object sender, EventArgs e)
+        {
+            Button checkedBtn = (Button)sender;
+            simiRandom = checkedBtn.Text;
+            FindViewById<Button>(Resource.Id.buttonOrder).Text =
+                Core.OrderUpdater.generateOrder(4, simiRandom, ref orderDrink);
+        }
+
+        private void SugarBtnTouch(object sender, EventArgs e)
+        {
+            Button checkedBtn = (Button)sender;
+            simiSugar = checkedBtn.Text;
+            FindViewById<Button>(Resource.Id.buttonOrder).Text =
+                Core.OrderUpdater.generateOrder(5, simiSugar, ref orderDrink);
+        }
+
+        private void GauPoBtnTouch(object sender, EventArgs e)
+        {
+            Button checkedBtn = (Button)sender;
+            simiGauPo = checkedBtn.Text;
+            FindViewById<Button>(Resource.Id.buttonOrder).Text =
+                Core.OrderUpdater.generateOrder(6, simiGauPo, ref orderDrink);
         }
     }
 }

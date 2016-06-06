@@ -11,108 +11,112 @@
         android:id="@+id/toggleKopiTeh"
         android:textOff="@string/Kopi"
         android:textOn="@string/Teh" />
-    <RadioGroup
+    <GridLayout
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroupMilk"
-        android:orientation="horizontal">
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
+        android:id="@+id/gridMilk"
+        android:columnCount="3"
+        android:columnOrderPreserved="true"
+        android:rowCount="1"
+        android:rowOrderPreserved="true"
+        android:useDefaultMargins="true">
+        <Button
             android:text="@string/Default"
-            android:id="@+id/radioMilkDefault" />
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnMilkDefault" />
+        <Button
             android:text="@string/O"
-            android:id="@+id/radioMilkO" />
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnMilkO" />
+        <Button
             android:text="@string/See"
-            android:id="@+id/radioMilkSee" />
-    </RadioGroup>
-    <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMilkSee" />
+    </GridLayout>
+    <GridLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroupRandom"
-        android:orientation="horizontal">
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
+        android:id="@+id/gridSugar"
+        android:columnCount="4"
+        android:columnOrderPreserved="true"
+        android:rowCount="2"
+        android:rowOrderPreserved="true"
+        android:useDefaultMargins="true">
+        <Button
             android:text="@string/Default"
-            android:id="@+id/radioRandomDefault" />
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnRandomDefault" />
+        <Button
             android:text="@string/Alia"
-            android:id="@+id/radioRandomAlia" />
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnAlia" />
+        <Button
             android:text="@string/Lemon"
-            android:id="@+id/radioRandomLemon" />
-        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnLemon" />
+        <Button
             android:text="@string/Masala"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/radioRandomMasala" />
-    </RadioGroup>
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/radioGroupSugar"
-        android:orientation="horizontal">
-        <RadioButton
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
+            android:id="@+id/btnMasala" />
+        <Button
             android:text="@string/Default"
-            android:id="@+id/radioSugarDefault" />
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnSugarDefault" />
+        <Button
             android:text="@string/Kosong"
-            android:id="@+id/radioSugarKosong" />
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnSugarZero" />
+        <Button
             android:text="@string/GarDai"
-            android:id="@+id/radioSugarMore" />
-        <RadioButton
-            android:text="@string/SiuDai"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radioSugarLess" />
-    </RadioGroup>
-    <RadioGroup
+            android:id="@+id/btnSugarMore" />
+        <Button
+            android:text="@string/SiuDai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSugarLess" />
+    </GridLayout>
+    <GridLayout
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroupDensity"
-        android:orientation="horizontal">
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
+        android:id="@+id/gridGauPo"
+        android:columnCount="3"
+        android:columnOrderPreserved="true"
+        android:rowCount="1"
+        android:rowOrderPreserved="true"
+        android:useDefaultMargins="true">
+        <Button
             android:text="@string/Default"
-            android:id="@+id/radioDensityDefault" />
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnGauPoDefault" />
+        <Button
             android:text="@string/Gau"
-            android:id="@+id/radioDensityThick" />
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnGau" />
+        <Button
             android:text="@string/Po"
-            android:id="@+id/radioDensityThin" />
-    </RadioGroup>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPo" />
+    </GridLayout>
     <ToggleButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
