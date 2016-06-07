@@ -9,7 +9,7 @@ using Java.Lang;
 
 namespace xamarin_lim_kopi
 {
-    [Activity(Label = "xamarin_lim_kopi", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Lai Order", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         string simiServings = string.Empty;
