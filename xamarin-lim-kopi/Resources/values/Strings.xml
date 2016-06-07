@@ -18,4 +18,19 @@
   <string name="Peng">Peng</string>
   <string name="Servings">How many servings?</string>
   <string name="Order">Order</string>
+
+  <string name="ServingsPrompt">How many servings?</string>
+  <string-array name="ServingsArray">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+    <item>8</item>
+    <item>9</item>
+    <item>10</item>
+  </string-array>
 </resources>

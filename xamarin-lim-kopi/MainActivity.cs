@@ -28,7 +28,7 @@ namespace xamarin_lim_kopi
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            EditText servingsEdit = FindViewById<EditText>(Resource.Id.editServings);
+            // EditText servingsEdit = FindViewById<EditText>(Resource.Id.editServings);
 
             ToggleButton kopiOrTeh = FindViewById<ToggleButton>(Resource.Id.toggleKopiTeh);
 
@@ -52,13 +52,15 @@ namespace xamarin_lim_kopi
 
             ToggleButton pengBo = FindViewById<ToggleButton>(Resource.Id.togglePeng);
 
+            Spinner numberSpinner = FindViewById<Spinner>(Resource.Id.spinnerServings);
+
             Button orderButton = FindViewById<Button>(Resource.Id.buttonOrder);
 
-            simiServings = servingsEdit.Text;
+            // simiServings = servingsEdit.Text;
             orderDrink = new string[] {
-                string.Empty,
+                GetString(Resource.String.Order),
                 simiServings,
-                simiDrink,
+                GetString(Resource.String.Kopi),
                 simiMilk,
                 simiRandom,
                 simiSugar,
@@ -66,14 +68,21 @@ namespace xamarin_lim_kopi
                 simiPeng
             };
 
-            orderButton.Text = Core.OrderUpdater.generateOrder(0, GetString(Resource.String.Order),
-                ref orderDrink);
+            orderButton.Text = Core.OrderUpdater.generateOrder(1, "0", ref orderDrink);
 
+            /*
             servingsEdit.EditorAction += delegate
             {
                 simiServings = servingsEdit.Text;
                 orderButton.Text = Core.OrderUpdater.generateOrder(1, simiServings, ref orderDrink);
             };
+            */
+
+            numberSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(numberSpinnerItemSelected);
+            var arrayAdapter = ArrayAdapter.CreateFromResource(
+                this, Resource.Array.ServingsArray, Android.Resource.Layout.SimpleSpinnerItem);
+            arrayAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            numberSpinner.Adapter = arrayAdapter;
 
             kopiOrTeh.Click += (object sender, EventArgs e) =>
             {
@@ -104,12 +113,20 @@ namespace xamarin_lim_kopi
             pengBo.Click += (object sender, EventArgs e) =>
             {
                 simiPeng = (pengBo.Checked) ?
-                    GetString(Resource.String.Peng)
-                    : "(" + GetString(Resource.String.MaiPeng) + ")";
+                    GetString(Resource.String.Peng) : string.Empty;
                 orderButton.Text = Core.OrderUpdater.generateOrder(7, simiPeng, ref orderDrink);
             };
 
             // orderButton.Click += 
+        }
+
+        private void numberSpinnerItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner numberSpinner = (Spinner)sender;
+            simiServings = (string)numberSpinner.GetItemAtPosition(e.Position);
+
+            FindViewById<Button>(Resource.Id.buttonOrder).Text =
+                Core.OrderUpdater.generateOrder(1, simiServings, ref orderDrink);
         }
 
         private void MilkBtnTouch(object sender, EventArgs e)

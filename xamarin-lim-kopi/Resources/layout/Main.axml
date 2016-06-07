@@ -123,13 +123,19 @@
         android:id="@+id/togglePeng"
         android:textOff="@string/MaiPeng"
         android:textOn="@string/Peng" />
-    <EditText
+<!-- <EditText
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editServings"
         android:hint="@string/Servings"
-        android:numeric="integer" />
+        android:numeric="integer" /> 
+    -->
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerServings"
+        android:prompt="@string/ServingsPrompt" />
     <Button
         android:text="@string/Order"
         android:layout_width="match_parent"
