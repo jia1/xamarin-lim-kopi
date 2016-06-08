@@ -18,6 +18,7 @@
   <string name="Peng">Peng</string>
   <string name="Servings">How many servings?</string>
   <string name="Order">Order</string>
+  <string name="ReadOrder">View Orders</string>
 
   <string name="ServingsPrompt">How many servings?</string>
   <string-array name="ServingsArray">
@@ -30,6 +31,5 @@
     <item>7</item>
     <item>8</item>
     <item>9</item>
-    <item>10</item>
   </string-array>
 </resources>

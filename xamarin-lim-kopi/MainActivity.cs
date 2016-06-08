@@ -6,12 +6,15 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Java.Lang;
+using System.Collections.Generic;
 
 namespace xamarin_lim_kopi
 {
     [Activity(Label = "Lai Order", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        static readonly List<string> orderList = new List<string>();
+
         string simiServings = string.Empty;
         string simiDrink = string.Empty;
         string simiMilk = string.Empty;
@@ -53,6 +56,7 @@ namespace xamarin_lim_kopi
             Spinner numberSpinner = FindViewById<Spinner>(Resource.Id.spinnerServings);
 
             Button orderButton = FindViewById<Button>(Resource.Id.buttonOrder);
+            Button historyButton = FindViewById<Button>(Resource.Id.buttonHistory);
 
             orderDrink = new string[] {
                 GetString(Resource.String.Order),
@@ -106,7 +110,8 @@ namespace xamarin_lim_kopi
                 orderButton.Text = Core.OrderUpdater.generateOrder(7, simiPeng, ref orderDrink);
             };
 
-            // orderButton.Click += 
+            orderButton.Click += CreateOrder;
+            historyButton.Click += ReadOrder;
         }
 
         private void numberSpinnerItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -148,6 +153,32 @@ namespace xamarin_lim_kopi
             simiGauPo = checkedBtn.Text;
             FindViewById<Button>(Resource.Id.buttonOrder).Text =
                 Core.OrderUpdater.generateOrder(6, simiGauPo, ref orderDrink);
+        }
+
+        private void CreateOrder(object sender, EventArgs e)
+        {
+            Button orderBtn = (Button)sender;
+            string currentOrder = orderBtn.Text;
+            int startIndex = GetString(Resource.String.Order).Length;
+            currentOrder = currentOrder.Substring(startIndex, currentOrder.Length - startIndex);
+            orderList.Add(currentOrder);
+        }
+
+        private void ReadOrder(object sender, EventArgs e)
+        {
+            var readIntent = new Intent(this, typeof(OrderHistoryActivity));
+            readIntent.PutStringArrayListExtra("order_list", orderList);
+            StartActivity(readIntent);
+        }
+
+        private void UpdateOrder(object sender, EventArgs e)
+        {
+            ;
+        }
+
+        private void DeleteOrder(object sender, EventArgs e)
+        {
+            ;
         }
     }
 }

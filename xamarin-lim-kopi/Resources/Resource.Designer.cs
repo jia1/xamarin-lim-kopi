@@ -118,6 +118,9 @@ namespace xamarin_lim_kopi
 			// aapt resource value: 0x7f06000b
 			public const int btnSugarZero = 2131099659;
 			
+			// aapt resource value: 0x7f060015
+			public const int buttonHistory = 2131099669;
+			
 			// aapt resource value: 0x7f060014
 			public const int buttonOrder = 2131099668;
 			
@@ -210,14 +213,17 @@ namespace xamarin_lim_kopi
 			// aapt resource value: 0x7f04000d
 			public const int Po = 2130968589;
 			
+			// aapt resource value: 0x7f040012
+			public const int ReadOrder = 2130968594;
+			
 			// aapt resource value: 0x7f040005
 			public const int See = 2130968581;
 			
 			// aapt resource value: 0x7f040010
 			public const int Servings = 2130968592;
 			
-			// aapt resource value: 0x7f040012
-			public const int ServingsPrompt = 2130968594;
+			// aapt resource value: 0x7f040013
+			public const int ServingsPrompt = 2130968595;
 			
 			// aapt resource value: 0x7f04000b
 			public const int SiuDai = 2130968587;
