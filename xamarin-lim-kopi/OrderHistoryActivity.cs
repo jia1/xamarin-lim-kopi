@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace xamarin_lim_kopi
 {
-    [Activity(Label = "OrderHistoryActivity")]
+    [Activity(Label = "Order History")]
     public class OrderHistoryActivity : ListActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
