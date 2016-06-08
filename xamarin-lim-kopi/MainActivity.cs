@@ -28,8 +28,6 @@ namespace xamarin_lim_kopi
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // EditText servingsEdit = FindViewById<EditText>(Resource.Id.editServings);
-
             ToggleButton kopiOrTeh = FindViewById<ToggleButton>(Resource.Id.toggleKopiTeh);
 
             Button milkBtn = FindViewById<Button>(Resource.Id.btnMilkDefault);
@@ -56,7 +54,6 @@ namespace xamarin_lim_kopi
 
             Button orderButton = FindViewById<Button>(Resource.Id.buttonOrder);
 
-            // simiServings = servingsEdit.Text;
             orderDrink = new string[] {
                 GetString(Resource.String.Order),
                 simiServings,
@@ -69,14 +66,6 @@ namespace xamarin_lim_kopi
             };
 
             orderButton.Text = Core.OrderUpdater.generateOrder(1, "0", ref orderDrink);
-
-            /*
-            servingsEdit.EditorAction += delegate
-            {
-                simiServings = servingsEdit.Text;
-                orderButton.Text = Core.OrderUpdater.generateOrder(1, simiServings, ref orderDrink);
-            };
-            */
 
             numberSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(numberSpinnerItemSelected);
             var arrayAdapter = ArrayAdapter.CreateFromResource(

@@ -123,14 +123,6 @@
         android:id="@+id/togglePeng"
         android:textOff="@string/MaiPeng"
         android:textOn="@string/Peng" />
-<!-- <EditText
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editServings"
-        android:hint="@string/Servings"
-        android:numeric="integer" /> 
-    -->
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
