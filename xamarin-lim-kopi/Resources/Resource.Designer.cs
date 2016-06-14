@@ -76,71 +76,74 @@ namespace xamarin_lim_kopi
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060007
-			public const int btnAlia = 2131099655;
-			
-			// aapt resource value: 0x7f060010
-			public const int btnGau = 2131099664;
-			
-			// aapt resource value: 0x7f06000f
-			public const int btnGauPoDefault = 2131099663;
-			
 			// aapt resource value: 0x7f060008
-			public const int btnLemon = 2131099656;
-			
-			// aapt resource value: 0x7f060009
-			public const int btnMasala = 2131099657;
-			
-			// aapt resource value: 0x7f060002
-			public const int btnMilkDefault = 2131099650;
-			
-			// aapt resource value: 0x7f060003
-			public const int btnMilkO = 2131099651;
-			
-			// aapt resource value: 0x7f060004
-			public const int btnMilkSee = 2131099652;
+			public const int btnAlia = 2131099656;
 			
 			// aapt resource value: 0x7f060011
-			public const int btnPo = 2131099665;
+			public const int btnGau = 2131099665;
 			
-			// aapt resource value: 0x7f060006
-			public const int btnRandomDefault = 2131099654;
+			// aapt resource value: 0x7f060010
+			public const int btnGauPoDefault = 2131099664;
+			
+			// aapt resource value: 0x7f060009
+			public const int btnLemon = 2131099657;
 			
 			// aapt resource value: 0x7f06000a
-			public const int btnSugarDefault = 2131099658;
+			public const int btnMasala = 2131099658;
 			
-			// aapt resource value: 0x7f06000d
-			public const int btnSugarLess = 2131099661;
+			// aapt resource value: 0x7f060003
+			public const int btnMilkDefault = 2131099651;
 			
-			// aapt resource value: 0x7f06000c
-			public const int btnSugarMore = 2131099660;
-			
-			// aapt resource value: 0x7f06000b
-			public const int btnSugarZero = 2131099659;
-			
-			// aapt resource value: 0x7f060015
-			public const int buttonHistory = 2131099669;
-			
-			// aapt resource value: 0x7f060014
-			public const int buttonOrder = 2131099668;
-			
-			// aapt resource value: 0x7f06000e
-			public const int gridGauPo = 2131099662;
-			
-			// aapt resource value: 0x7f060001
-			public const int gridMilk = 2131099649;
+			// aapt resource value: 0x7f060004
+			public const int btnMilkO = 2131099652;
 			
 			// aapt resource value: 0x7f060005
-			public const int gridSugar = 2131099653;
-			
-			// aapt resource value: 0x7f060013
-			public const int spinnerServings = 2131099667;
-			
-			// aapt resource value: 0x7f060000
-			public const int toggleKopiTeh = 2131099648;
+			public const int btnMilkSee = 2131099653;
 			
 			// aapt resource value: 0x7f060012
-			public const int togglePeng = 2131099666;
+			public const int btnPo = 2131099666;
+			
+			// aapt resource value: 0x7f060007
+			public const int btnRandomDefault = 2131099655;
+			
+			// aapt resource value: 0x7f06000b
+			public const int btnSugarDefault = 2131099659;
+			
+			// aapt resource value: 0x7f06000e
+			public const int btnSugarLess = 2131099662;
+			
+			// aapt resource value: 0x7f06000d
+			public const int btnSugarMore = 2131099661;
+			
+			// aapt resource value: 0x7f06000c
+			public const int btnSugarZero = 2131099660;
+			
+			// aapt resource value: 0x7f060016
+			public const int buttonHistory = 2131099670;
+			
+			// aapt resource value: 0x7f060015
+			public const int buttonOrder = 2131099669;
+			
+			// aapt resource value: 0x7f06000f
+			public const int gridGauPo = 2131099663;
+			
+			// aapt resource value: 0x7f060002
+			public const int gridMilk = 2131099650;
+			
+			// aapt resource value: 0x7f060006
+			public const int gridSugar = 2131099654;
+			
+			// aapt resource value: 0x7f060000
+			public const int listViewHistory = 2131099648;
+			
+			// aapt resource value: 0x7f060014
+			public const int spinnerServings = 2131099668;
+			
+			// aapt resource value: 0x7f060001
+			public const int toggleKopiTeh = 2131099649;
+			
+			// aapt resource value: 0x7f060013
+			public const int togglePeng = 2131099667;
 			
 			static Id()
 			{
@@ -156,7 +159,10 @@ namespace xamarin_lim_kopi
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int History = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Main = 2130903041;
 			
 			static Layout()
 			{
