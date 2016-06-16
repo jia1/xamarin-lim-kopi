@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.Text;
 
 namespace xamarin_lim_kopi
 {
@@ -31,15 +32,15 @@ namespace xamarin_lim_kopi
             listView.Adapter = new ArrayAdapter<string>(
                 this, Android.Resource.Layout.SimpleListItem1, orderList);
 
-            listView.ItemLongClick += new EventHandler<AdapterView.ItemLongClickEventArgs>(f);
+            listView.ItemLongClick += new EventHandler<AdapterView.ItemLongClickEventArgs>(ClearHistory);
         }
 
-        private void f (object sender, AdapterView.ItemLongClickEventArgs target)
+        private void ClearHistory (object sender, AdapterView.ItemLongClickEventArgs target)
         {
             ListView lv = (ListView)sender;
-            IList<string> ol = Intent.Extras.GetStringArrayList("order_list") ?? new string[0];
-            ol.RemoveAt(target.Position);
-            // Refresh
+            List<string> blankOrderList = new List<string>();
+            lv.Adapter = new ArrayAdapter<string>(
+                this, Android.Resource.Layout.SimpleListItem1, blankOrderList);
         }
     }
 }
