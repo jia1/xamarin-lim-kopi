@@ -17,11 +17,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/gridMilk"
-        android:columnCount="3"
+        android:columnCount="4"
         android:columnOrderPreserved="true"
         android:rowCount="1"
         android:rowOrderPreserved="true"
-        android:useDefaultMargins="true">
+        android:useDefaultMargins="false">
         <Button
             android:text="@string/Default"
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
         android:columnOrderPreserved="true"
         android:rowCount="2"
         android:rowOrderPreserved="true"
-        android:useDefaultMargins="true">
+        android:useDefaultMargins="false">
         <Button
             android:text="@string/Default"
             android:layout_width="wrap_content"
@@ -96,11 +96,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/gridGauPo"
-        android:columnCount="3"
+        android:columnCount="4"
         android:columnOrderPreserved="true"
         android:rowCount="1"
         android:rowOrderPreserved="true"
-        android:useDefaultMargins="true">
+        android:useDefaultMargins="false">
         <Button
             android:text="@string/Default"
             android:layout_width="wrap_content"
